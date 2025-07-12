@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-lg;
+  }
+  
+  .dream-button {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  .dream-button-primary {
+    @apply dream-button bg-gradient-to-r from-sky-400 to-rose-400 text-white shadow-lg hover:shadow-xl hover:from-sky-500 hover:to-rose-500;
+  }
+  
+  .dream-button-secondary {
+    @apply dream-button glass-effect text-gray-700 hover:bg-white/30;
+  }
+
+  .dark .dream-button-secondary {
+    @apply bg-gray-800/60 text-gray-200 border-gray-600/50 hover:bg-gray-700/60;
+  }
+
+  .dream-card {
+    @apply glass-effect rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:bg-white/30;
+  }
+
+  .dark .dream-card {
+    @apply bg-gray-800/60 border-gray-600/50 hover:bg-gray-700/60;
+  }
+
+  .dream-input {
+    @apply w-full px-4 py-3 rounded-xl glass-effect placeholder-gray-500 text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-400/50 transition-all duration-200;
+  }
+
+  .dark .dream-input {
+    @apply bg-gray-800/60 border-gray-600/50 text-gray-200 placeholder-gray-400;
+  }
+  
+  .dream-gradient-text {
+    @apply bg-gradient-to-r from-sky-600 to-rose-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cinematic Video Effects */
+  .cinematic-video {
+    filter: blur(0.5px) brightness(0.9) contrast(1.1) saturate(1.2);
+    transform: scale(1.05);
+    animation: subtle-zoom 30s ease-in-out infinite alternate;
+  }
+
+  /* Ken Burns Effect for Static Backgrounds */
+  .ken-burns-effect {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  /* Floating Particles */
+  .floating-particles {
+    background-image:
+      radial-gradient(3px 3px at 20px 30px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(135,206,235,0.3), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255,182,193,0.4), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(221,160,221,0.3), transparent),
+      radial-gradient(1px 1px at 160px 30px, rgba(255,255,255,0.5), transparent),
+      radial-gradient(2px 2px at 60px 120px, rgba(173,216,230,0.3), transparent),
+      radial-gradient(1px 1px at 180px 60px, rgba(255,218,185,0.4), transparent);
+    background-repeat: repeat;
+    background-size: 250px 150px;
+    animation: float-particles 30s linear infinite;
+  }
+
+  /* Dream Mist Effect */
+  .dream-mist {
+    background: linear-gradient(45deg,
+      rgba(255,255,255,0.15) 0%,
+      rgba(135,206,235,0.1) 20%,
+      transparent 40%,
+      rgba(221,160,221,0.08) 60%,
+      rgba(255,182,193,0.1) 80%,
+      transparent 100%);
+    animation: drift-mist 45s ease-in-out infinite;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes subtle-zoom {
+  0% { transform: scale(1.05) translateX(0) translateY(0); }
+  25% { transform: scale(1.08) translateX(-1%) translateY(1%); }
+  50% { transform: scale(1.06) translateX(1%) translateY(-0.5%); }
+  75% { transform: scale(1.09) translateX(-0.5%) translateY(1.5%); }
+  100% { transform: scale(1.07) translateX(0.5%) translateY(-1%); }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1) contrast(1);
+  }
+  25% {
+    transform: scale(1.1) rotate(0.5deg);
+    filter: brightness(1.1) contrast(1.05);
+  }
+  50% {
+    transform: scale(1.05) rotate(-0.3deg);
+    filter: brightness(0.95) contrast(1.1);
+  }
+  75% {
+    transform: scale(1.15) rotate(0.8deg);
+    filter: brightness(1.05) contrast(1.02);
+  }
+  100% {
+    transform: scale(1.08) rotate(-0.2deg);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+@keyframes float-particles {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(-5px) translateX(-3px); }
+  75% { transform: translateY(-15px) translateX(8px); }
+  100% { transform: translateY(-8px) translateX(-2px); }
+}
+
+@keyframes drift-mist {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(0%) rotate(2deg);
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(100%) rotate(-1deg);
+    opacity: 0;
+  }
+}
