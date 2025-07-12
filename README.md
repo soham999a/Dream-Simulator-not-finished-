@@ -158,10 +158,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **ElevenLabs** for premium voice synthesis
 - **Tailwind CSS** for beautiful styling system
 
-## 📞 Support
-
-For support, email support@dreamweaver-ai.com or open an issue on GitHub.
-
----
-
-**Made with ❤️ for dreamers everywhere** 🌙✨
